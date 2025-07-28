@@ -1,0 +1,66 @@
+//ISMAR 2025_ SUBMISSION ID: 1195
+// This is the open-source Testbed Arduino Sketch
+
+// Define pins for encoder
+const int encoderPinA = 22;  // Encoder signal A
+const int encoderPinB = 23;  // Encoder signal B
+ 
+// Encoder configuration
+const int ENCODER_STEPS_PER_ROTATION = 360;
+volatile int encoderPos = 0;  // Encoder position
+int lastEncoderPos = 0;  // To track the previous position
+bool lastEncoderPinA = LOW;  // To store the last state of encoder A
+uint8_t output_pos=0x00;
+ 
+void setup() {
+  // Initialize serial communication
+  Serial.begin(921600);
+ 
+  // Set encoder pins as input with internal pull-ups
+  pinMode(encoderPinA, INPUT_PULLUP);
+  pinMode(encoderPinB, INPUT_PULLUP);
+ 
+  // Initialize the last state of pin A
+  lastEncoderPinA = digitalRead(encoderPinA);
+ 
+  // Attach interrupts to encoder pins to track pulses
+  attachInterrupt(digitalPinToInterrupt(encoderPinA), updateEncoder, CHANGE);
+  attachInterrupt(digitalPinToInterrupt(encoderPinB), updateEncoder, CHANGE);
+ 
+  Serial.println("Encoder Angle Tracking Started");
+}
+ 
+void loop() {
+ 
+  if(output_pos!=0x00){
+   
+    Serial.print((char)output_pos);
+    output_pos=0x00;
+  }
+  
+  // Stability delay
+  delay(2);
+}
+ 
+// Interrupt function to track encoder pulses
+void updateEncoder() {
+  // Leggi lo stato corrente dei pin A e B
+  bool currentEncoderPinA = digitalRead(encoderPinA);
+  bool currentEncoderPinB = digitalRead(encoderPinB);
+ 
+  // React only to changes
+  if (currentEncoderPinA != lastEncoderPinA) {
+    if (currentEncoderPinA == HIGH) {
+      // Se il pin A va HIGH, controlla la direzione con il pin B
+      if (currentEncoderPinB == HIGH) {
+       // encoderPos++;  // Rotazione oraria
+        output_pos=0x01;
+      } else {
+       // encoderPos--;  // Rotazione antioraria
+       output_pos=0xFF;
+ 
+      }
+    }
+    lastEncoderPinA = currentEncoderPinA;
+  }
+}
