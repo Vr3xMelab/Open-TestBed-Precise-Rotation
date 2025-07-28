@@ -1,0 +1,28 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!1045 &1
+EditorBuildSettings:
+  m_ObjectHideFlags: 0
+  serializedVersion: 2
+  m_Scenes:
+  - enabled: 0
+    path: Assets/01_Scenes/MR_FINAL/Training/tr_MR_Arrow.unity
+    guid: decb1f6438fd59b4a94d74474e73ca1f
+  - enabled: 0
+    path: Assets/01_Scenes/MR_FINAL/Training/tr_MR_Gestalt.unity
+    guid: 4e27e9865f1e773489bdb4395febad05
+  - enabled: 0
+    path: Assets/01_Scenes/MR_FINAL/Training/tr_MR_Magnifier.unity
+    guid: 245bea82e9e7ba04f9b73fe5616f430c
+  - enabled: 0
+    path: Assets/01_Scenes/MR_FINAL/MR_Arrow.unity
+    guid: 6ca19f92c9d27c4438673f92a7399341
+  - enabled: 0
+    path: Assets/01_Scenes/MR_FINAL/MR_Gestalt.unity
+    guid: 3f9c348c50260f2428594a660623f4a8
+  - enabled: 0
+    path: Assets/01_Scenes/MR_FINAL/MR_Magnifier.unity
+    guid: 269e799bbdb0c69469d7bd4758366cf3
+  m_configObjects:
+    Unity.XR.Oculus.Settings: {fileID: 11400000, guid: f1d7a01feb7bee545afc6bfb7224dd92, type: 2}
+    com.unity.xr.management.loader_settings: {fileID: 11400000, guid: afe9d1ef44b9a4b43abddbd97c6fd349, type: 2}
