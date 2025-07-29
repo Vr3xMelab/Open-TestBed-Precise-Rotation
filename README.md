@@ -124,9 +124,11 @@ Could include CSV files or other formats, with information on user performance, 
     
 ## Usage
 
-1. Clone repository
-2. Install driver for ESP32
-3. Upload arduino sketch on ESP32
-4. Close Arduino IDE
-5. Open Unity Project
-6. Play scenes in folder (01_scene)
+1. 3D Printing the Mouth Components
+2. Assembling the Encoder to the Mouth
+3. Clone repository
+4. Install driver for ESP32
+5. Upload arduino sketch on ESP32
+6. Close Arduino IDE
+7. Open Unity Project
+8. Play scenes in folder (01_scene)
